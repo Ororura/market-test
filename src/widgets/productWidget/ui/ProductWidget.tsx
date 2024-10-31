@@ -26,7 +26,7 @@ const ProductWidget: FC<Props> = ({ products, categories }) => {
 
   useEffect(() => {
     dispatch(setNewProduct(products));
-  }, []);
+  }, [dispatch, products]);
 
   const sortedProducts = filteredProducts
     .filter((product) => product.title.toLowerCase().includes(searchTerm.toLowerCase()))

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
+import { BreadcrumbsSVG } from 'shared/ui/svg';
 
 type BreadcrumbItem = {
   label: string;
@@ -14,7 +15,7 @@ type BreadcrumbsProps = {
 
 const Breadcrumbs: FC<BreadcrumbsProps> = ({ className, items }) => (
   <nav className={className}>
-    <ol className='flex space-x-2'>
+    <ol className='flex'>
       {items.map((item, index) => (
         <li key={index} className='flex items-center'>
           {item.href ? (
@@ -24,7 +25,11 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ className, items }) => (
           ) : (
             <span className={item.isBold ? 'font-bold' : ''}>{item.label}</span>
           )}
-          {index < items.length - 1 && <span className='mx-1'>{'>'}</span>}
+          {index < items.length - 1 && (
+            <span className={'mx-2'}>
+              <BreadcrumbsSVG />
+            </span>
+          )}
         </li>
       ))}
     </ol>

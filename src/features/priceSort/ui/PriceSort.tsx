@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { VectorDownSVG, VectorUpSvg } from 'shared/ui/svg';
 
 type Props = {
   sortByPrice: 'asc' | 'desc';
@@ -11,9 +12,10 @@ const PriceSort: FC<Props> = ({ sortByPrice, setSortByPrice }) => {
   };
 
   return (
-    <p className={'mt-[30px] cursor-pointer'} onClick={toggleSortByPrice}>
-      Price {sortByPrice === 'asc' ? '↑' : '↓'}
-    </p>
+    <div className={'mt-[30px] flex items-center'} onClick={toggleSortByPrice}>
+      <p className={'mr-[5px] cursor-pointer'}>Price</p>
+      {sortByPrice === 'asc' ? <VectorUpSvg /> : <VectorDownSVG />}
+    </div>
   );
 };
 
