@@ -7,6 +7,7 @@ const config: Config = {
       colors: {
         primary: {
           'border-color': '#E2E8F0',
+          'check-box-color': '#808080',
         },
       },
     },
