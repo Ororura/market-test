@@ -1,48 +1,31 @@
 'use client';
-import { FC, useEffect, useState } from 'react';
-import { useGetProductByIdQuery } from 'entities/product/api';
+import { FC } from 'react';
 import Breadcrumbs from 'shared/ui/breadcrumbs/ui/Breadcrumbs';
 import Image from 'next/image';
 import { Rating } from 'shared/ui/rating';
 import { FavouriteSvg } from 'shared/ui/svg';
+import { ProductType } from 'entities/product/types';
 
 type Props = {
-  params: Promise<{ id: string }>;
+  product: ProductType;
 };
 
-const ProductDetailWidget: FC<Props> = ({ params }) => {
-  const [productId, setProductId] = useState<string | null>(null);
-
-  useEffect(() => {
-    (async () => {
-      const resolvedParams = await params;
-      setProductId(resolvedParams.id);
-    })();
-  }, [params]);
-
-  const { data: selectedProduct, isLoading } = useGetProductByIdQuery(productId!, {
-    skip: !productId,
-  });
-
-  if (isLoading || !selectedProduct) {
-    return <div>Loading...</div>;
-  }
-
+const ProductDetailWidget: FC<Props> = ({ product }) => {
   return (
     <div className={'mx-auto mb-[100px] max-w-7xl px-[170px]'}>
       <Breadcrumbs
         className='mt-16'
-        items={[{ label: 'Main' }, { label: 'Catalog', href: '/' }, { label: selectedProduct.title, isBold: true }]}
+        items={[{ label: 'Main' }, { label: 'Catalog', href: '/' }, { label: product.title, isBold: true }]}
       />
       <div className={'mt-[29px] flex'}>
-        <Image src={selectedProduct.image} alt={selectedProduct.image} width={200} height={260} />
+        <Image src={product.image} alt={product.title} width={200} height={260} className={'object-cover'} />
         <div className={'ml-[42px] w-full'}>
           <div className={'flex justify-between border-b border-primary-border-color pb-[15px]'}>
             <div>
-              <p className={'font-black'}>{selectedProduct.title}</p>
+              <p className={'font-black'}>{product.title}</p>
               <div className={'flex'}>
-                <Rating rate={selectedProduct.rating.rate} />
-                <span className={'ml-[6px]'}>({selectedProduct.rating.count} rated)</span>
+                <Rating rate={product.rating.rate} />
+                <span className={'ml-[6px]'}>({product.rating.count} rated)</span>
               </div>
             </div>
             <div>
@@ -54,10 +37,10 @@ const ProductDetailWidget: FC<Props> = ({ params }) => {
           <div className={'mt-[40px] flex'}>
             <div>
               <p className={'font-black'}>Description</p>
-              <p className={'mt-[20px]'}>{selectedProduct.description}</p>
+              <p className={'mt-[20px]'}>{product.description}</p>
             </div>
             <div className={'ml-[70px]'}>
-              <p className={'flex justify-end text-[20px] font-black'}>${selectedProduct.price}</p>
+              <p className={'flex justify-end text-[20px] font-black'}>${product.price}</p>
               <button className={'bg-primary-orange rounded px-[25px] py-2 text-white'}>Купить</button>
             </div>
           </div>

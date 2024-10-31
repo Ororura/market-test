@@ -12,14 +12,6 @@ export const productSlice = createSlice({
       return action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      productApi.endpoints.getProduct.matchFulfilled,
-      (state, action: PayloadAction<ProductType[]>) => {
-        return action.payload;
-      },
-    );
-  },
 });
 
 export const { setNewProduct } = productSlice.actions;

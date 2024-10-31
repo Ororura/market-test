@@ -3,6 +3,7 @@ import { ProductType } from 'entities/product/types';
 import { FavouriteSvg } from 'shared/ui/svg';
 import Image from 'next/image';
 import { useFavorites } from 'features/favourites/lib/hooks';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   product: ProductType;
@@ -10,15 +11,19 @@ type Props = {
 
 const Product: FC<Props> = ({ product }) => {
   const { addFavorite } = useFavorites();
-
+  const nav = useRouter();
   const toggleFavorite = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-
     addFavorite(product);
+  };
+
+  const handlerRedirect = () => {
+    nav.push(`/product/${product.id}`);
   };
 
   return (
     <div
+      onClick={handlerRedirect}
       className={
         'relative flex min-h-[435px] w-full flex-col items-center justify-between border border-primary-border-color'
       }

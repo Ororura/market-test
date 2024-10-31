@@ -44,7 +44,13 @@ const FavouritesWidget: FC = () => {
                 <p className={'mt-[40px] text-2xl'}>{quantity} item</p>
                 <div className={'mt-[35px] flex w-full justify-between'}>
                   <div className={'flex'}>
-                    <Image src={product.image} alt={product.title} width={134} height={178} />
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      width={134}
+                      height={178}
+                      className={'object-cover'}
+                    />
                     <div className={'ml-[50px]'}>
                       <p>{product.category}</p>
                       <p className={'max-w-[215px] text-[20px] font-black'}>{product.title}</p>
