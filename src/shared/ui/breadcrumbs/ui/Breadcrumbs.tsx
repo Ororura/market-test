@@ -3,8 +3,8 @@ import { FC } from 'react';
 
 type BreadcrumbItem = {
   label: string;
-  href?: string; // Если есть, элемент будет ссылкой
-  isBold?: boolean; // Определяет, выделять ли элемент жирным шрифтом
+  href?: string;
+  isBold?: boolean;
 };
 
 type BreadcrumbsProps = {

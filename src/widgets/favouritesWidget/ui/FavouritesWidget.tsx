@@ -10,24 +10,29 @@ const FavouritesWidget: FC = () => {
     removeFavorite(productId);
   };
   return (
-    <div className={'mx-auto flex max-w-7xl px-[170px]'}>
-      <div className='p-4'>
-        <h1 className='mb-4 text-2xl font-bold'>Избранные товары</h1>
+    <div className={'mx-auto mb-[100px] max-w-7xl px-[170px]'}>
+      <div className={'mt-[64px] border-b border-primary-border-color'}>
+        <h1 className='mb-4 text-[30px] font-normal'>Favourite</h1>
+      </div>
+      <div>
         <div className='grid grid-cols-1 gap-4'>
           {favorites.length === 0 ? (
             <p>Нет избранных товаров.</p>
           ) : (
             favorites.map((product, idx) => (
               <div key={idx}>
-                <div>
-                  <Image src={product.image} alt={product.title} width={134} height={178} />
-                  <div>
-                    <p>{product.category}</p>
-                    <p className={'text-[20px] font-black'}>{product.title}</p>
-                  </div>
+                <div className={'mt-[35px] flex w-full justify-between'}>
                   <div className={'flex'}>
-                    <p className={'font-black'}>{product.price}$</p>
+                    <Image src={product.image} alt={product.title} width={134} height={178} />
+                    <div className={'ml-[50px]'}>
+                      <p>{product.category}</p>
+                      <p className={'max-w-[215px] text-[20px] font-black'}>{product.title}</p>
+                    </div>
+                  </div>
+                  <div className={'flex gap-6'}>
+                    <p className={'text-[20px] font-black'}>{product.price}$</p>
                     <button
+                      className={'mt-[3px] flex items-start'}
                       onClick={() => {
                         handleRemoveFavorite(product.id);
                       }}
