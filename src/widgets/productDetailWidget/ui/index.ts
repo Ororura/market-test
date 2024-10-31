@@ -1,1 +1,1 @@
-export {} from './ProductDetailWidget';
+export { ProductDetailWidget } from './ProductDetailWidget';

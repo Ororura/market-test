@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { FavouriteSvg, LogoSvg } from 'shared/ui/svg';
-import { MagnifyingGlassSvg } from 'shared/ui/svg';
+import { FavouriteSvg, LogoSvg, MagnifyingGlassSvg } from 'shared/ui/svg';
 import { M_PLUS_1p } from 'next/font/google';
+
 const m_plus_1p = M_PLUS_1p({ subsets: ['latin'], weight: ['100', '300', '400'] });
 
 const Header: FC = () => {

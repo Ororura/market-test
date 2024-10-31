@@ -24,7 +24,7 @@ const Filters: FC<FiltersProps> = ({ categories, selectedCategories, setSelected
             <label>
               <input
                 type='checkbox'
-                className={'border-primary-check-box-color rounded-[3px]'}
+                className={'rounded-[3px] border-primary-check-box-color'}
                 checked={selectedCategories.includes(category)}
                 onChange={() => handleCheckboxChange(category)}
               />

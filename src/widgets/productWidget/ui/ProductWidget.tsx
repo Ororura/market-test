@@ -32,9 +32,9 @@ const ProductWidget: FC = () => {
         setSelectedCategories={setSelectedCategories}
       />
       <div className={'ml-[89px] text-[14px]'}>
-        <Breadcrumbs className='mt-[21px]' />
+        <Breadcrumbs className='mt-[21px]' items={[{ label: 'Main' }, { label: 'Catalog', href: '/', isBold: true }]} />
         <PriceSort sortByPrice={sortByPrice} setSortByPrice={setSortByPrice} />
-        <div className={'mt-[28px] grid grid-cols-[repeat(3,minmax(235px,1fr))]'}>
+        <div className={'mb-[100px] mt-[28px] grid grid-cols-[repeat(3,minmax(235px,1fr))]'}>
           {sortedProducts.length !== 0 &&
             sortedProducts.map((value, idx) => (
               <Link key={idx} href={`/product/${value.id}`}>

@@ -1,22 +1,32 @@
 import Link from 'next/link';
 import { FC } from 'react';
 
-type BreadcrumbsProps = {
-  className?: string;
+type BreadcrumbItem = {
+  label: string;
+  href?: string; // Если есть, элемент будет ссылкой
+  isBold?: boolean; // Определяет, выделять ли элемент жирным шрифтом
 };
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({ className }) => (
+type BreadcrumbsProps = {
+  className?: string;
+  items: BreadcrumbItem[];
+};
+
+const Breadcrumbs: FC<BreadcrumbsProps> = ({ className, items }) => (
   <nav className={className}>
     <ol className='flex space-x-2'>
-      <li>
-        <span>Main</span>
-      </li>
-      <li>{'>'}</li>
-      <li>
-        <Link href='/' className='font-bold hover:underline'>
-          Catalog
-        </Link>
-      </li>
+      {items.map((item, index) => (
+        <li key={index} className='flex items-center'>
+          {item.href ? (
+            <Link href={item.href} className={`${item.isBold ? 'font-bold' : ''} hover:underline`}>
+              {item.label}
+            </Link>
+          ) : (
+            <span className={item.isBold ? 'font-bold' : ''}>{item.label}</span>
+          )}
+          {index < items.length - 1 && <span className='mx-1'>{'>'}</span>}
+        </li>
+      ))}
     </ol>
   </nav>
 );

@@ -5,7 +5,10 @@ type ProductType = {
   description: string;
   category: string;
   image: string;
-  rate: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
 };
 
 export type { ProductType };
