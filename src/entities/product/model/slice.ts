@@ -9,14 +9,14 @@ export const productSlice = createSlice({
   initialState: initialState,
   reducers: {
     setNewProduct: (state, action: PayloadAction<ProductType[]>) => {
-      state.push(...action.payload);
+      return action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
       productApi.endpoints.getProduct.matchFulfilled,
       (state, action: PayloadAction<ProductType[]>) => {
-        state.push(...action.payload);
+        return action.payload;
       },
     );
   },

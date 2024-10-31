@@ -14,15 +14,17 @@ import Breadcrumbs from 'shared/ui/breadcrumbs/ui/Breadcrumbs';
 const ProductWidget: FC = () => {
   useGetProductQuery();
   const products: ProductType[] = useAppSelector((state) => state.Product);
+  const searchTerm = useAppSelector((state) => state.Shared.search);
   const { data: categories = [] } = useGetCategoriesQuery();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [sortByPrice, setSortByPrice] = useState<'asc' | 'desc'>('asc');
 
   const filteredProducts = useFilteredProducts(products, selectedCategories);
 
-  const sortedProducts = filteredProducts.slice().sort((a, b) => {
-    return sortByPrice === 'asc' ? a.price - b.price : b.price - a.price;
-  });
+  const sortedProducts = filteredProducts
+    .filter((product) => product.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    .slice()
+    .sort((a, b) => (sortByPrice === 'asc' ? a.price - b.price : b.price - a.price));
 
   return (
     <div className={'mx-auto flex max-w-7xl px-[170px]'}>

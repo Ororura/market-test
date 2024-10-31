@@ -16,9 +16,13 @@ const useFavorites = () => {
   };
 
   const removeFavorite = (productId: number) => {
-    const updatedFavorites = favorites.filter((item) => item.id !== productId);
-    setFavorites(updatedFavorites);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    const index = favorites.findIndex((item) => item.id === productId);
+    if (index !== -1) {
+      const updatedFavorites = [...favorites];
+      updatedFavorites.splice(index, 1);
+      setFavorites(updatedFavorites);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    }
   };
 
   const isFavorite = (productId: number) => {

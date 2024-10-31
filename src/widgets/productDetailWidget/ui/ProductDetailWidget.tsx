@@ -68,8 +68,3 @@ const ProductDetailWidget: FC<Props> = ({ params }) => {
 };
 
 export { ProductDetailWidget };
-
-// {/*<h1>{selectedProduct.title}</h1>*/}
-// {/*<p>Price: ${selectedProduct.price}</p>*/}
-// {/*<p>Description: {selectedProduct.description}</p>*/}
-// {/*<p>Category: {selectedProduct.category}</p>*/}

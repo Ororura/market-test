@@ -9,15 +9,12 @@ type Props = {
 };
 
 const Product: FC<Props> = ({ product }) => {
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const { addFavorite } = useFavorites();
 
   const toggleFavorite = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    if (isFavorite(product.id)) {
-      removeFavorite(product.id);
-    } else {
-      addFavorite(product);
-    }
+
+    addFavorite(product);
   };
 
   return (
