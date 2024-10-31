@@ -9,6 +9,7 @@ const config: Config = {
           'border-color': '#E2E8F0',
           'check-box-color': '#808080',
           'product-title-color': '#818181',
+          'footer-color': '#333333E5',
         },
       },
     },

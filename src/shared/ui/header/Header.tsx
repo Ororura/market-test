@@ -6,7 +6,7 @@ const m_plus_1p = M_PLUS_1p({ subsets: ['latin'], weight: ['100', '300', '400'] 
 
 const Header: FC = () => {
   return (
-    <header className={'mx-auto max-w-7xl'}>
+    <header className={'mx-auto max-w-7xl px-[170px]'}>
       <div className={'my-3 flex items-center justify-between'}>
         <LogoSvg />
         <div className={'max-w-[428px] rounded-[8px] border border-primary-border-color'}>

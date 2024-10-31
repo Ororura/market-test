@@ -24,7 +24,7 @@ const ProductWidget: FC = () => {
   });
 
   return (
-    <div className={'mx-auto flex max-w-7xl'}>
+    <div className={'mx-auto flex max-w-7xl px-[170px]'}>
       <Filters
         categories={categories}
         selectedCategories={selectedCategories}
