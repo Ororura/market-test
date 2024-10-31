@@ -1,16 +1,23 @@
 'use client';
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import Breadcrumbs from 'shared/ui/breadcrumbs/ui/Breadcrumbs';
 import Image from 'next/image';
 import { Rating } from 'shared/ui/rating';
 import { FavouriteSvg } from 'shared/ui/svg';
 import { ProductType } from 'entities/product/types';
+import { useFavorites } from 'features/favourites/lib/hooks';
 
 type Props = {
   product: ProductType;
 };
 
 const ProductDetailWidget: FC<Props> = ({ product }) => {
+  const { addFavorite } = useFavorites();
+
+  const toggleFavorite = () => {
+    addFavorite(product);
+  };
+
   return (
     <div className={'mx-auto mb-[100px] max-w-7xl px-[170px]'}>
       <Breadcrumbs
@@ -29,7 +36,10 @@ const ProductDetailWidget: FC<Props> = ({ product }) => {
               </div>
             </div>
             <div>
-              <button className={'flex items-center gap-[13px] rounded border py-[10px] pl-[22px] pr-[14.5px]'}>
+              <button
+                onClick={toggleFavorite}
+                className={'flex items-center gap-[13px] rounded border py-[10px] pl-[22px] pr-[14.5px]'}
+              >
                 Add to favourite <FavouriteSvg />
               </button>
             </div>
