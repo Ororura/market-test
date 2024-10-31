@@ -1,0 +1,1 @@
+export { setNewProduct } from './slice';
