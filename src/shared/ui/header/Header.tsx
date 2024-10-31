@@ -16,14 +16,14 @@ const Header: FC = () => {
   };
 
   return (
-    <header className={'mx-auto max-w-7xl px-[170px]'}>
-      <div className={'my-3 flex items-center justify-between'}>
-        <div className={'relative'}>
+    <header className='mx-auto max-w-7xl px-4'>
+      <div className='my-3 flex flex-col items-center justify-between gap-3 sm:flex-row'>
+        <div className='relative flex-shrink-0'>
           <LogoSvg />
-          <LogoSecondPartSvg className={'absolute right-[-2px] top-0'} />
+          <LogoSecondPartSvg className='absolute right-[-2px] top-0' />
         </div>
-        <div className={'w-full max-w-[428px] rounded-[8px] border border-primary-border-color'}>
-          <div className={'flex pb-[17px] pl-[25px] pr-[16.5px] pt-4'}>
+        <div className='w-full max-w-[428px] rounded-[8px] border border-primary-border-color'>
+          <div className='flex items-center pb-[17px] pl-4 pr-4 pt-4'>
             <input
               onChange={handlerSearchChange}
               placeholder='Search'
@@ -32,17 +32,17 @@ const Header: FC = () => {
             <MagnifyingGlassSvg />
           </div>
         </div>
-        <Link href={'/favourites'}>
-          <div className={'flex flex-col items-center'}>
+        <Link href='/favourites'>
+          <div className='flex flex-col items-center'>
             <FavouriteSvg />
             <p>Favourite</p>
           </div>
         </Link>
       </div>
-      <div className={'border-b border-t border-primary-border-color'}>
-        <ul className={`${m_plus_1p.className} my-[15px] flex gap-8`}>
+      <div className='border-b border-t border-primary-border-color'>
+        <ul className={`${m_plus_1p.className} my-[15px] flex flex-wrap gap-4 sm:gap-8`}>
           <li>
-            <Link href={'/'}>
+            <Link href='/'>
               <p>Main page</p>
             </Link>
           </li>

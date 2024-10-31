@@ -1,5 +1,4 @@
 'use client';
-
 import { FC, useEffect, useState } from 'react';
 import { Filters } from 'features/filters/ui';
 import { useAppSelector } from 'app/providers/store';
@@ -34,16 +33,16 @@ const ProductWidget: FC<Props> = ({ products, categories }) => {
     .sort((a, b) => (sortByPrice === 'asc' ? a.price - b.price : b.price - a.price));
 
   return (
-    <div className={'mx-auto flex max-w-7xl px-[170px]'}>
+    <div className='mx-auto flex max-w-7xl flex-col px-4 sm:px-8 md:flex-row md:px-12'>
       <Filters
         categories={categories}
         selectedCategories={selectedCategories}
         setSelectedCategories={setSelectedCategories}
       />
-      <div className={'ml-[89px] text-[14px]'}>
+      <div className='ml-0 mt-4 text-[14px] md:ml-[50px] lg:ml-[89px]'>
         <Breadcrumbs className='mt-[21px]' items={[{ label: 'Main' }, { label: 'Catalog', href: '/', isBold: true }]} />
         <PriceSort sortByPrice={sortByPrice} setSortByPrice={setSortByPrice} />
-        <div className={'mb-[100px] mt-[28px] grid grid-cols-[repeat(3,minmax(235px,1fr))]'}>
+        <div className='mb-[100px] mt-[28px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
           {sortedProducts.length !== 0 && sortedProducts.map((value, idx) => <Product key={idx} product={value} />)}
         </div>
       </div>

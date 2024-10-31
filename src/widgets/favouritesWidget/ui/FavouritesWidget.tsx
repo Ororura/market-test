@@ -30,48 +30,43 @@ const FavouritesWidget: FC = () => {
   );
 
   return (
-    <div className={'mx-auto mb-[100px] max-w-7xl px-[170px]'}>
-      <div className={'mt-[64px] border-b border-primary-border-color'}>
+    <div className='mx-auto mb-[50px] max-w-7xl px-4'>
+      <div className='mt-16 border-b border-primary-border-color'>
         <h1 className='mb-4 text-[30px] font-normal'>Favourite</h1>
       </div>
-      <div>
-        <div className='grid grid-cols-1 gap-4'>
-          {Object.keys(groupedFavorites).length === 0 ? (
-            <p>Нет избранных товаров.</p>
-          ) : (
-            filteredFavorites.map(({ product, quantity }, idx) => (
-              <div key={idx}>
-                <p className={'mt-[40px] text-2xl'}>{quantity} item</p>
-                <div className={'mt-[35px] flex w-full justify-between'}>
-                  <div className={'flex'}>
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      width={134}
-                      height={178}
-                      className={'object-cover'}
-                    />
-                    <div className={'ml-[50px]'}>
-                      <p>{product.category}</p>
-                      <p className={'max-w-[215px] text-[20px] font-black'}>{product.title}</p>
-                    </div>
-                  </div>
-                  <div className={'flex gap-6'}>
-                    <p className={'text-[20px] font-black'}>{(product.price * quantity).toFixed(2)}$</p>
-                    <button
-                      className={'mt-[3px] flex items-start'}
-                      onClick={() => {
-                        handleRemoveFavorite(product.id);
-                      }}
-                    >
-                      Remove
-                    </button>
+      <div className='mt-4 grid gap-8'>
+        {Object.keys(groupedFavorites).length === 0 ? (
+          <p className='text-center'>Нет избранных товаров.</p>
+        ) : (
+          filteredFavorites.map(({ product, quantity }, idx) => (
+            <div key={idx} className='space-y-4'>
+              <p className='text-xl sm:text-2xl'>
+                {quantity} item{quantity > 1 ? 's' : ''}
+              </p>
+              <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
+                <div className='flex gap-4 sm:gap-6'>
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    width={120}
+                    height={160}
+                    className='h-[130px] w-[100px] object-cover sm:h-[160px] sm:w-[120px]'
+                  />
+                  <div>
+                    <p className='text-sm sm:text-base'>{product.category}</p>
+                    <p className='max-w-xs text-[20px] font-black sm:max-w-[215px]'>{product.title}</p>
                   </div>
                 </div>
+                <div className='flex items-center gap-4 sm:gap-6'>
+                  <p className='text-[20px] font-black'>{(product.price * quantity).toFixed(2)}$</p>
+                  <button className='mt-1 flex items-start sm:mt-0' onClick={() => handleRemoveFavorite(product.id)}>
+                    Remove
+                  </button>
+                </div>
               </div>
-            ))
-          )}
-        </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
