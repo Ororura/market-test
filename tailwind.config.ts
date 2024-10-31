@@ -10,7 +10,7 @@ const config: Config = {
           'check-box-color': '#808080',
           'product-title-color': '#818181',
           'footer-color': '#333333E5',
-          'star-color': '#FFC700',
+          orange: '#FFC700',
           'empy-star-color': '#E6E6E6',
         },
       },

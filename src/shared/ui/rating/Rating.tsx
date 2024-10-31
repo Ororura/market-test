@@ -12,11 +12,11 @@ const Rating: FC<RatingProps> = ({ rate }) => {
   return (
     <div className='flex items-center space-x-1 text-[10px]'>
       {[...Array(fullStars)].map((_, i) => (
-        <span className='text-primary-star-color' key={`full-${i}`}>
+        <span className='text-primary-orange' key={`full-${i}`}>
           &#9733;
         </span>
       ))}
-      {hasHalfStar && <span className='text-primary-star-color'>&#9733;</span>}
+      {hasHalfStar && <span className='text-primary-orange'>&#9733;</span>}
       {[...Array(emptyStars)].map((_, i) => (
         <span className='text-primary-empy-star-color' key={`empty-${i}`}>
           &#9734;

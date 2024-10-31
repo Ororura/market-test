@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang='en'>
-        <body className={` ${satoshi.className} antialiased`}>{children}</body>
+        <body className={` ${satoshi.className} text-[14px] antialiased`}>{children}</body>
       </html>
     </StoreProvider>
   );
