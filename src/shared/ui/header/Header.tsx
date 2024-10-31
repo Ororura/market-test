@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { FavouriteSvg, LogoSvg } from 'shared/ui/svg';
 import { MagnifyingGlassSvg } from 'shared/ui/svg';
+import { M_PLUS_1p } from 'next/font/google';
+const m_plus_1p = M_PLUS_1p({ subsets: ['latin'], weight: ['100', '300', '400'] });
 
 const Header: FC = () => {
   return (
@@ -19,7 +21,7 @@ const Header: FC = () => {
         </div>
       </div>
       <div className={'border-b border-t border-primary-border-color'}>
-        <ul className={'my-[15px] flex gap-8'}>
+        <ul className={`${m_plus_1p.className} my-[15px] flex gap-8`}>
           <li>
             <p>Main page</p>
           </li>

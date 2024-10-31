@@ -1,18 +1,33 @@
 import { FC } from 'react';
-import { useGetCategoriesQuery } from 'entities/product/api';
 
-//TODO Прогресс бар
-const Filters: FC = () => {
-  const { data } = useGetCategoriesQuery();
+type FiltersProps = {
+  categories: string[];
+  selectedCategories: string[];
+  setSelectedCategories: (categories: string[]) => void;
+};
+
+const Filters: FC<FiltersProps> = ({ categories, selectedCategories, setSelectedCategories }) => {
+  const handleCheckboxChange = (category: string) => {
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter((cat) => cat !== category));
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
+  };
 
   return (
     <div className={'mt-[25px]'}>
       <p>Filters</p>
       <ul className={'mt-8'}>
-        {data?.map((category, idx) => (
+        {categories?.map((category, idx) => (
           <li className={'mb-4'} key={idx}>
             <label>
-              <input type='checkbox' className={'border-primary-check-box-color rounded-[3px]'} value={idx} />
+              <input
+                type='checkbox'
+                className={'border-primary-check-box-color rounded-[3px]'}
+                checked={selectedCategories.includes(category)}
+                onChange={() => handleCheckboxChange(category)}
+              />
               <span className={'ml-[10px]'}>{category}</span>
             </label>
           </li>

@@ -8,6 +8,7 @@ const config: Config = {
         primary: {
           'border-color': '#E2E8F0',
           'check-box-color': '#808080',
+          'product-title-color': '#818181',
         },
       },
     },
