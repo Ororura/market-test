@@ -1,0 +1,1 @@
+export { useSortedProducts } from './useSortedProducts';
