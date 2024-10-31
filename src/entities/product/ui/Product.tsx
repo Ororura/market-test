@@ -1,13 +1,25 @@
-import { FC } from 'react';
+import React, { FC, MouseEvent } from 'react';
 import { ProductType } from 'entities/product/types';
 import { FavouriteSvg } from 'shared/ui/svg';
 import Image from 'next/image';
+import { useFavorites } from 'features/favourites/lib/hooks';
 
 type Props = {
   product: ProductType;
 };
 
 const Product: FC<Props> = ({ product }) => {
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+
+  const toggleFavorite = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (isFavorite(product.id)) {
+      removeFavorite(product.id);
+    } else {
+      addFavorite(product);
+    }
+  };
+
   return (
     <div
       className={
@@ -19,7 +31,7 @@ const Product: FC<Props> = ({ product }) => {
           <p className={'text-primary-product-title-color'}>{product.category}</p>
           <p className={'max-w-[150px] overflow-hidden text-ellipsis whitespace-nowrap font-medium'}>{product.title}</p>
         </div>
-        <div className={'absolute right-[20px] top-[20px]'}>
+        <div className={'absolute right-[20px] top-[20px] cursor-pointer'} onClick={toggleFavorite}>
           <FavouriteSvg />
         </div>
       </div>
