@@ -50,4 +50,4 @@ const ProductWidget: FC<Props> = ({ products, categories }) => {
   );
 };
 
-export { ProductWidget };
+export default ProductWidget;

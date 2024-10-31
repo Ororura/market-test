@@ -1,13 +1,17 @@
-import { FC } from 'react';
+import { FC, lazy, Suspense } from 'react';
 import { Header } from 'shared/ui/header';
-import { FavouritesWidget } from 'widgets/favouritesWidget/ui';
 import { Footer } from 'shared/ui/footer';
 
 const Favourites: FC = () => {
+  const FavouritesWidget = lazy(() =>
+    import('widgets/favouritesWidget/ui').then((module) => ({ default: module.FavouritesWidget })),
+  );
   return (
     <>
       <Header />
-      <FavouritesWidget />
+      <Suspense fallback={<div>Loading Favourites...</div>}>
+        <FavouritesWidget />
+      </Suspense>
       <Footer />
     </>
   );

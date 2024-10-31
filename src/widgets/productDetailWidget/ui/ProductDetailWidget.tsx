@@ -60,4 +60,4 @@ const ProductDetailWidget: FC<Props> = ({ product }) => {
   );
 };
 
-export { ProductDetailWidget };
+export default ProductDetailWidget;
