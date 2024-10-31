@@ -4,7 +4,7 @@ import { Header } from 'shared/ui/header';
 const Home: FC = () => {
   return (
     <>
-      <Header></Header>
+      <Header />
       <div>Main</div>
     </>
   );
