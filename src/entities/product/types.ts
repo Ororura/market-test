@@ -4,7 +4,7 @@ type ProductType = {
   price: number;
   description: string;
   category: string;
-  imageName: string;
+  image: string;
   rate: number;
 };
 
