@@ -30,7 +30,7 @@ const FavouritesWidget: FC = () => {
   );
 
   return (
-    <div className='mx-auto mb-[50px] max-w-7xl px-4'>
+    <div className='mx-auto mb-[50px] w-full max-w-7xl px-4'>
       <div className='mt-16 border-b border-primary-border-color'>
         <h1 className='mb-4 text-[30px] font-normal'>Favourite</h1>
       </div>

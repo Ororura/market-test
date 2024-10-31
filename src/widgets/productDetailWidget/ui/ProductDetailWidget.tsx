@@ -19,7 +19,7 @@ const ProductDetailWidget: FC<Props> = ({ product }) => {
   };
 
   return (
-    <div className={'mx-auto mb-[100px] max-w-7xl px-4'}>
+    <div className={'mx-auto mb-[100px] w-full max-w-7xl px-4'}>
       <Breadcrumbs
         className='mt-16'
         items={[{ label: 'Main' }, { label: 'Catalog', href: '/' }, { label: product.title, isBold: true }]}

@@ -16,7 +16,7 @@ const Header: FC = () => {
   };
 
   return (
-    <header className='mx-auto max-w-7xl px-4'>
+    <header className='mx-auto w-full max-w-7xl px-4'>
       <div className='my-3 flex flex-col items-center justify-between gap-3 sm:flex-row'>
         <div className='relative flex-shrink-0'>
           <LogoSvg />

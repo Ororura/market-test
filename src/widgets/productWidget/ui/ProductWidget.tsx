@@ -33,7 +33,7 @@ const ProductWidget: FC<Props> = ({ products, categories }) => {
     .sort((a, b) => (sortByPrice === 'asc' ? a.price - b.price : b.price - a.price));
 
   return (
-    <div className='mx-auto flex max-w-7xl flex-col px-4 sm:px-8 md:flex-row md:px-12'>
+    <div className='mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-8 md:flex-row md:px-12'>
       <Filters
         categories={categories}
         selectedCategories={selectedCategories}
