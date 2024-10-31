@@ -1,1 +1,1 @@
-export { setNewProduct } from './slice';
+export { setNewProduct, productSlice } from './slice';

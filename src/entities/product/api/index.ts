@@ -1,1 +1,1 @@
-export { productApi } from './api';
+export { productApi, useGetProductQuery, useGetCategoriesQuery } from './api';

@@ -6,8 +6,11 @@ export const productApi = api.injectEndpoints({
     getProduct: build.query<ProductType[], void>({
       query: () => 'products',
     }),
+    getCategories: build.query<string[], void>({
+      query: () => 'products/categories',
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useGetProductQuery } = productApi;
+export const { useGetProductQuery, useGetCategoriesQuery } = productApi;
