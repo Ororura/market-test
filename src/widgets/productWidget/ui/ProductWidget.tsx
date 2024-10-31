@@ -9,6 +9,7 @@ import { Product } from 'entities/product/ui';
 import useFilteredProducts from 'features/filters/lib/hooks/useFilteredProducts';
 import Link from 'next/link';
 import { PriceSort } from 'features/priceSort/ui';
+import Breadcrumbs from 'shared/ui/breadcrumbs/ui/Breadcrumbs';
 
 const ProductWidget: FC = () => {
   useGetProductQuery();
@@ -31,22 +32,15 @@ const ProductWidget: FC = () => {
         setSelectedCategories={setSelectedCategories}
       />
       <div className={'ml-[89px] text-[14px]'}>
-        <nav className={'mt-[21px]'}>
-          <ol className={'flex space-x-2'}>
-            <li>
-              <span>Main</span>
-            </li>
-            <li>{'>'}</li>
-            <li>
-              <Link href='/' className={'font-bold hover:underline'}>
-                Catalog
-              </Link>
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumbs className='mt-[21px]' />
         <PriceSort sortByPrice={sortByPrice} setSortByPrice={setSortByPrice} />
         <div className={'mt-[28px] grid grid-cols-[repeat(3,minmax(235px,1fr))]'}>
-          {sortedProducts.length !== 0 && sortedProducts.map((value, idx) => <Product key={idx} product={value} />)}
+          {sortedProducts.length !== 0 &&
+            sortedProducts.map((value, idx) => (
+              <Link key={idx} href={`/product/${value.id}`}>
+                <Product product={value} />
+              </Link>
+            ))}
         </div>
       </div>
     </div>
