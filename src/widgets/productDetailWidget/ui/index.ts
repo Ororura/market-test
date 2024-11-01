@@ -1,1 +1,1 @@
-export { default as ProductDetailWidget } from './ProductDetailWidget';
+export { ProductDetailWidget } from './ProductDetailWidget';

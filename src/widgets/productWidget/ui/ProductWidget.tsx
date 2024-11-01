@@ -4,7 +4,7 @@ import { Filters } from 'features/filters/ui';
 import { useAppSelector } from 'app/providers/store';
 import { ProductType } from 'entities/product/types';
 import { Product } from 'entities/product/ui';
-import useFilteredProducts from 'features/filters/lib/hooks/useFilteredProducts';
+import { useFilteredProducts } from 'features/filters/lib/hooks';
 import { PriceSort } from 'features/priceSort/ui';
 import Breadcrumbs from 'shared/ui/breadcrumbs/ui/Breadcrumbs';
 import { setNewProduct } from 'entities/product/model';
@@ -50,4 +50,4 @@ const ProductWidget: FC<Props> = ({ products, categories }) => {
   );
 };
 
-export default ProductWidget;
+export { ProductWidget };

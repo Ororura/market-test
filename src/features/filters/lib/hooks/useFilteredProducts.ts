@@ -9,4 +9,4 @@ const useFilteredProducts = (products: ProductType[], selectedCategories: string
   }, [products, selectedCategories]);
 };
 
-export default useFilteredProducts;
+export { useFilteredProducts };

@@ -24,7 +24,7 @@ const Product: FC<Props> = ({ product }) => {
   return (
     <div
       onClick={handlerRedirect}
-      className='relative flex min-h-[435px] w-full min-w-[235px] transform flex-col items-center justify-between border border-primary-border-color pb-[13px] pl-[14px] pt-[10px] transition duration-100 ease-in-out active:scale-95'
+      className='relative flex min-h-[435px] w-full min-w-[235px] transform cursor-pointer flex-col items-center justify-between border border-primary-border-color pb-[13px] pl-[14px] pt-[10px]'
     >
       <div className='flex self-start pb-[10px] pl-2 text-[14px] md:pl-4'>
         <div>

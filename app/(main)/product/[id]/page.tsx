@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy } from 'react';
+import { FC, lazy, Suspense } from 'react';
 import { productApi } from 'entities/product/api';
 
 type Props = {

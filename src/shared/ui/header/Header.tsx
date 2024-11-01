@@ -40,7 +40,7 @@ const Header: FC = () => {
         </Link>
       </div>
       <div className='border-b border-t border-primary-border-color'>
-        <ul className={`${m_plus_1p.className} my-[15px] flex flex-wrap gap-4 sm:gap-8`}>
+        <ul className={`${m_plus_1p.className} my-[15px] flex cursor-pointer flex-wrap gap-4 sm:gap-8`}>
           <li className='transform transition duration-100 ease-in-out active:scale-90'>
             <Link href='/'>
               <p>Main page</p>

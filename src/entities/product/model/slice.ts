@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductType } from 'entities/product/types';
-import { productApi } from 'entities/product/api';
 
 const initialState: ProductType[] = [];
 
