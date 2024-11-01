@@ -33,7 +33,7 @@ const Header: FC = () => {
           </div>
         </div>
         <Link href='/favourites'>
-          <div className='flex flex-col items-center'>
+          <div className='flex transform flex-col items-center transition duration-100 ease-in-out active:scale-95'>
             <FavouriteSvg />
             <p>Favourite</p>
           </div>
@@ -41,18 +41,18 @@ const Header: FC = () => {
       </div>
       <div className='border-b border-t border-primary-border-color'>
         <ul className={`${m_plus_1p.className} my-[15px] flex flex-wrap gap-4 sm:gap-8`}>
-          <li>
+          <li className='transform transition duration-100 ease-in-out active:scale-90'>
             <Link href='/'>
               <p>Main page</p>
             </Link>
           </li>
-          <li>
+          <li className='transform transition duration-100 ease-in-out active:scale-90'>
             <p>Delivery</p>
           </li>
-          <li>
+          <li className='transform transition duration-100 ease-in-out active:scale-90'>
             <p>Contact</p>
           </li>
-          <li>
+          <li className='transform transition duration-100 ease-in-out active:scale-90'>
             <p>Blog</p>
           </li>
         </ul>

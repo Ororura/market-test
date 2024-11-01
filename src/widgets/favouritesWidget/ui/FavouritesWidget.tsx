@@ -45,13 +45,9 @@ const FavouritesWidget: FC = () => {
               </p>
               <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
                 <div className='flex gap-4 sm:gap-6'>
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={120}
-                    height={160}
-                    className='h-[130px] w-[100px] object-cover sm:h-[160px] sm:w-[120px]'
-                  />
+                  <div className={'flex flex-col'}>
+                    <Image src={product.image} alt={product.title} width={120} height={160} />
+                  </div>
                   <div>
                     <p className='text-sm sm:text-base'>{product.category}</p>
                     <p className='max-w-xs text-[20px] font-black sm:max-w-[215px]'>{product.title}</p>
@@ -59,7 +55,10 @@ const FavouritesWidget: FC = () => {
                 </div>
                 <div className='flex items-center gap-4 sm:gap-6'>
                   <p className='text-[20px] font-black'>{(product.price * quantity).toFixed(2)}$</p>
-                  <button className='mt-1 flex items-start sm:mt-0' onClick={() => handleRemoveFavorite(product.id)}>
+                  <button
+                    className='mt-1 flex transform items-start transition duration-100 ease-in-out active:scale-90 sm:mt-0'
+                    onClick={() => handleRemoveFavorite(product.id)}
+                  >
                     Remove
                   </button>
                 </div>

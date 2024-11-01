@@ -25,7 +25,9 @@ const ProductDetailWidget: FC<Props> = ({ product }) => {
         items={[{ label: 'Main' }, { label: 'Catalog', href: '/' }, { label: product.title, isBold: true }]}
       />
       <div className={'mt-[29px] flex flex-col md:flex-row'}>
-        <Image src={product.image} alt={product.title} width={200} height={260} className={'object-cover'} />
+        <div className={'flex flex-col items-center'}>
+          <Image src={product.image} alt={product.title} width={200} height={260} className={'object-cover'} />
+        </div>
         <div className={'ml-0 w-full md:ml-[42px]'}>
           <div className={'flex justify-between border-b border-primary-border-color pb-[15px]'}>
             <div>
@@ -38,7 +40,7 @@ const ProductDetailWidget: FC<Props> = ({ product }) => {
             <div>
               <button
                 onClick={toggleFavorite}
-                className={'flex items-center gap-[13px] rounded border py-[10px] pl-[22px] pr-[14.5px]'}
+                className='flex transform items-center gap-[13px] rounded border py-[10px] pl-[22px] pr-[14.5px] transition duration-100 ease-in-out active:scale-95'
               >
                 Add to favourite <FavouriteSvg />
               </button>
@@ -51,7 +53,9 @@ const ProductDetailWidget: FC<Props> = ({ product }) => {
             </div>
             <div className={'mt-4 flex flex-col items-end md:ml-[70px] md:mt-0'}>
               <p className={'text-[20px] font-black'}>${product.price}</p>
-              <button className={'mt-2 rounded bg-primary-orange px-[25px] py-2 text-white'}>Купить</button>
+              <button className='mt-2 transform rounded bg-primary-orange px-[25px] py-2 text-white transition duration-100 ease-in-out active:scale-95'>
+                Купить
+              </button>
             </div>
           </div>
         </div>
