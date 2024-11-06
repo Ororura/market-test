@@ -6,8 +6,7 @@ import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Gushop',
-  description:
-    'Discover unique products and enjoy an exceptional shopping experience at Gushop. Shop now for the best deals on fashion, gadgets, and home essentials!',
+  description: 'Discover unique products and enjoy an exceptional shopping experience at Gushop!',
 };
 
 const satoshi = localFont({
